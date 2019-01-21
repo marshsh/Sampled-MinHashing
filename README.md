@@ -1,4 +1,8 @@
-Sampled-MinHashing
+## Extension of Sampled-MinHashing
+In this Fork, we aim to modify the way Co-Ocurring Word Sets (COWS) are clustered into topics.
+
+
+(Original) Sampled-MinHashing
 ==================
 Sampled Min-Hashing (SMH) is a simple and scalable method to discover patterns from large-scale dyadic data (e.g. bag of words). SMH relies on Min-Hashing to efficiently mine beyond-pairwise relationships which are clustered to form the final discovered patterns. SMH has been successfully applied to the discovery of objects from image collections and topics from text corpora. This repository includes a C implementation of SMH together with SWIG Python bindings. 
 
@@ -6,6 +10,7 @@ Sampled Min-Hashing (SMH) is a simple and scalable method to discover patterns f
 Install the dependencies:
 ~~~~	
 sudo apt-get install cmake python swig libpython-dev
+sudo apt-get install -y build-essential
 ~~~~
 
 Clone and coompile the library:
@@ -37,6 +42,9 @@ To uninstall the library from your system do:
 ~~~~
 sudo make uninstall
 ~~~~
+
+You should also have installed numpy, scipy
+
 
 ## Example Usage
 ###  Getting NIPS Corpus
