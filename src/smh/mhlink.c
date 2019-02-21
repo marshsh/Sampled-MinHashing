@@ -92,7 +92,10 @@ void mhlink_add_neighbors(ListDB *listdb, ListDB *clusters, uint listid, List *i
                               clus_table[clusters->lists[max_clusid].data[j].item] = min_clusid;
 
                          // Destroy cluster with largest id
-                         list_destroy(&clusters->lists[max_clusid]);                         
+                         list_destroy(&clusters->lists[max_clusid]);      
+
+                         // Reset listid to new Id (It could have changed when we merged clusters)
+                         listid = min_clusid;                   
                     }
                }
           }
@@ -163,6 +166,9 @@ ListDB mhlink_cluster(ListDB *listdb, uint tuple_size, uint number_of_tuples, ui
 
      listdb_delete_smallest(&clusters, min_cluster_size);
      ListDB models = mhlink_make_model(listdb, &clusters);
+
+// Aqui Mar se quedó.
+
      listdb_destroy(&clusters);
      
      return models;
